@@ -46,7 +46,6 @@ function managerMenu() {
                 ]
             }
         ]).then(function (answer) {
-            console.log("Inquirer runs..");
             switch (answer.action) {
                 case "View Products for Sale":
                     viewProducts();
@@ -58,7 +57,7 @@ function managerMenu() {
                     addToInventory();
                     break;
                 case "Add New Product":
-                    console.log(answer.action);
+                    addNewProduct();
                     break;
             }
         })
@@ -133,6 +132,56 @@ function addToInventory() {
         });
 };
 
+function addNewProduct() {
+    inquirer
+        .prompt([
+            {
+                name: "productName",
+                type: "input",
+                message: "What's the name of the new product?"
+            },
+            {
+                name: "productDepartment",
+                type: "input",
+                message: "To which department does the new product belong?"
+            },
+            {
+                name: "productPrice",
+                type: "number",
+                message: "What is the price of this product?",
+                validate: function (input) {
+                    if (Number.isNaN(input)) {
+                        return "Not a proper number. Please enter a numerical value.";
+                    } else {
+                        return true;
+                    }
+                }
+            },
+            {
+                name: "productQuantity",
+                type: "number",
+                message: "What's the initial quantity of this product?",
+                validate: function (input) {
+                    if (Number.isNaN(input)) {
+                        return "Not a proper number. Please enter a numerical value.";
+                    } else {
+                        return true;
+                    }
+                }
+            }
+        ]).then(function (answer) {
+            connection.query('INSERT INTO products (product_name,department_name,price,stock_quantity) VALUES ("' + answer.productName + '","' + answer.productDepartment + '",' + answer.productPrice + ',' + answer.productQuantity + ');', function (err) {
+                if (err) {
+                    throw err;
+                } else {
+                    console.log(answer.productQuantity + " unit(s) of " + answer.productName + " were added to inventory under the " + answer.productDepartment + " department at a price of $" + answer.productPrice + ".");
+                }
+                restartManagerMenu();
+            })
+        });
+};
+
+
 function restartManagerMenu() {
     inquirer
         .prompt({
@@ -143,6 +192,7 @@ function restartManagerMenu() {
         }).then(function (answer) {
             switch (answer.restart) {
                 case true:
+                    renderCurrentItemNames();
                     managerMenu();
                     break;
                 case false:
