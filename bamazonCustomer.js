@@ -17,6 +17,8 @@ connection.connect(function (err) {
 
 currentItems = [];
 
+var separator = "---------------------------------";
+
 function displayItems() {
     connection.query("select * from products;", function (err, res) {
         if (err) {
@@ -24,9 +26,10 @@ function displayItems() {
         } else {
             res.forEach(function (item, index) {
                 currentItems.push(res[index].item_id);
-                var item = "-- Item #: " + res[index].item_id + " --\n";
+                var item = "---- Item ID #: " + res[index].item_id + " ----\n";
                 item += "Product: " + res[index].product_name + "\n";
-                item += "Price: $" + res[index].price;
+                item += "Price: $" + res[index].price + "\n";
+                item += separator;
                 console.log(item);
             });
             purchase();
