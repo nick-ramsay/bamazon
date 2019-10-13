@@ -16,6 +16,7 @@ connection.connect(function (err) {
 });
 
 var currentItemNames = [];
+var currentItemDepartments = [];
 
 function renderCurrentItemNames() {
     connection.query("select * from products;", function (err, res) {
@@ -24,6 +25,9 @@ function renderCurrentItemNames() {
         } else {
             res.forEach(function (item, index) {
                 currentItemNames.push(res[index].product_name);
+                if (currentItemDepartments.indexOf(res[index].department_name) == -1) {
+                    currentItemDepartments.push(res[index].department_name);
+                }
             })
         }
     })
@@ -142,8 +146,9 @@ function addNewProduct() {
             },
             {
                 name: "productDepartment",
-                type: "input",
-                message: "To which department does the new product belong?"
+                type: "list",
+                message: "To which department does the new product belong?",
+                choices: currentItemDepartments
             },
             {
                 name: "productPrice",

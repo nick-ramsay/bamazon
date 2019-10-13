@@ -69,13 +69,14 @@ function purchase() {
                         purchase();
                     } else {
                         var newQuantity = res[0].stock_quantity - answer.quantity;
+                        var salesTotal = (answer.quantity * itemResults[0].price);
                         connection.query(
-                            "UPDATE products SET stock_quantity = " + newQuantity + " where item_id = " + answer.id + ";",
+                            "UPDATE products SET stock_quantity = " + newQuantity + ", product_sales = product_sales + " + salesTotal + " where item_id = " + answer.id + ";",
                             function (err, res) {
                                 if (err) {
                                     throw err;
                                 } else {
-                                    console.log("Thank you for purchasing " + answer.quantity + " unit(s) of " + itemResults[0].product_name + ".\nYour total cost was: $" + (answer.quantity * itemResults[0].price));
+                                    console.log("Thank you for purchasing " + answer.quantity + " unit(s) of " + itemResults[0].product_name + ".\nYour total cost was: $" + salesTotal);
                                 }
                                 shopAgain();
                             });
