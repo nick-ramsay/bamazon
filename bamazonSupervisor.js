@@ -67,11 +67,7 @@ const { table } = require("table");
 let data,
     output;
 
-data = [
-    ['0A', '0B', '0C'],
-    ['1A', '1B', '1C'],
-    ['2A', '2B', '2C']
-];
+data = [["Department ID", "Department Name", "Overhead Costs", "Total Sales ($)", "Total Profit/Loss ($)"]];
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -111,20 +107,54 @@ function menuSupervisor() {
         })
 };
 
+function newDepartment() {
+    inquirer
+        .prompt([
+            {
+                name: "departmentName",
+                message: "What is the name of the new department?",
+                type: "input"
+            },
+            {
+                name: "overHeadCosts",
+                message: "What is the new department's overhead cost?",
+                type: "number"
+            }
+        ]).then(function (answer) {
+            connection.query('INSERT INTO departments (department_name,over_head_costs) VALUE ("' + answer.departmentName + '",' + answer.overHeadCosts + ');', function (err, res) {
+                if (err) {
+                    throw err;
+                } else {
+                    console.log("The " + answer.departmentName + " department was added with an overhead cost of $" + answer.overHeadCosts + '.');
+                    restartManagerMenu();
+                };
+            })
+        });
+};
 
 function viewSales() {
-    connection.query("select departments.* from products join departments on products.department_name = products.department_name;", function (err, res) {
+    connection.query("select distinct departments.department_id department_id, departments.department_name department_name, departments.over_head_costs department_cost, SUM(products.product_sales) product_sales,(SUM(products.product_sales) - departments.over_head_costs) profit from bamazon.products join bamazon.departments on products.department_name = departments.department_name group by departments.department_id, departments.department_name, departments.over_head_costs;", function (err, res) {
         if (err) {
             throw err;
         } else {
-            console.log(res);
+            data = [["Department ID", "Department Name", "Overhead Costs", "Total Sales ($)", "Total Profit/Loss ($)"]];
+            for (i = 0; i < res.length; i++) {
+                var row = [];
+                row.push(res[i].department_id);
+                row.push(res[i].department_name);
+                row.push(res[i].department_cost);
+                row.push(res[i].product_sales);
+                row.push(res[i].profit);
+                data.push(row);
+            };
+            output = table(data);
             console.log(output);
             restartManagerMenu();
         };
     })
 };
 
-output = table(data);
+
 
 function restartManagerMenu() {
     inquirer
@@ -152,6 +182,3 @@ function exit() {
 };
 
 menuSupervisor();
-
-
-
