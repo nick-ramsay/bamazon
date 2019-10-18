@@ -67,8 +67,6 @@ const { table } = require("table");
 let data,
     output;
 
-data = [["Department ID", "Department Name", "Overhead Costs", "Total Sales ($)", "Total Profit/Loss ($)"]];
-
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
@@ -137,7 +135,7 @@ function viewSales() {
         if (err) {
             throw err;
         } else {
-            data = [["Department ID", "Department Name", "Overhead Costs", "Total Sales ($)", "Total Profit/Loss ($)"]];
+            data = [["\u001b[32;1mDepartment ID\u001b[0m", "\u001b[32;1mDepartment Name\u001b[0m", "\u001b[32;1mOverhead Costs\u001b[0m", "\u001b[32;1mTotal Sales ($)\u001b[0m", "\u001b[32;1mTotal Profit/Loss ($)\u001b[0m"]];
             for (i = 0; i < res.length; i++) {
                 var row = [];
                 row.push(res[i].department_id);
