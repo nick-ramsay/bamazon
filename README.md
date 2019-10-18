@@ -19,7 +19,7 @@
 
 ## Instructions
 
-1. bamazonCustomer
+### bamazonCustomer
 
 ![Bamazon Customer Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonCustomer-instructions.jpg?raw=true)
 
@@ -29,6 +29,20 @@
     - Enter the quantity of the product that you would like to purchase
   - After upon executing the purchase, the application will show via console log which item you purchased, how many units were purchased, and your total cost. If there wasn't enough stock for you to make your purchase, you will receive the following message in the console log and be asked to attempt your purchase again:
 ![Bamazon Customer Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonCustomer-insufficient-quantity.jpg?raw=true)
+
+### bamazonSupervisor
+
+![Bamazon Supervisor Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonSupervisor-instructions.jpg?raw=true)
+
+  - To start, enter following command in terminal: ```node bamazonSupervisor.js```
+  - You will be presented with two actions from which you can chose, "View Product Sales by Department" or "Create New Department"
+  ![Bamazon Supervisor Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonSupervisor-main-menu.jpg?raw=true)
+    - View Product Sales by Department: This will show you a table that outlines, by department, total costs, total sales (revenue), and the profit or loss each department has accrued.
+    ![Bamazon Supervisor Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonSupervisor-product-sales.jpg?raw=true)
+      - You can then either return to the main menu to pick your next action or close the application.
+    - Create New Department: Will allow you to create a new department for the store by entering a name for the department and specifying the over head costs of the department.
+    ![Bamazon Supervisor Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonSupervisor-new-department.jpg?raw=true)
+      - You can then either return to the main menu to pick your next action or close the application.
 
 
 ## Built With
