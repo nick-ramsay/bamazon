@@ -19,7 +19,7 @@
 
 ## Instructions
 
-- bamazonCustomer
+1. bamazonCustomer
 ![Bamazon Customer Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonCustomer-instructions.jpg?raw=true)
 
   - To start, enter following command in terminal: ```node bamazonCustomer.js```
