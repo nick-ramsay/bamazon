@@ -55,7 +55,14 @@ function purchase() {
             {
                 name: "quantity",
                 type: "number",
-                message: "How many units of this item would you like to purchase?"
+                message: "How many units of this item would you like to purchase?",
+                validate: function (input) {
+                    if (Number.isNaN(input)) {
+                        return "Not a proper number. Please enter a numerical value.";
+                    } else {
+                        return true;
+                    }
+                }
             }
         ]).then(function (answer) {
             var query = connection.query(

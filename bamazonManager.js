@@ -25,6 +25,14 @@ function renderCurrentItemNames() {
         } else {
             res.forEach(function (item, index) {
                 currentItemNames.push(res[index].product_name);
+            })
+        }
+    });
+    connection.query("select * from departments;", function (err, res) {
+        if (err) {
+            throw err;
+        } else {
+            res.forEach(function (item, index) {
                 if (currentItemDepartments.indexOf(res[index].department_name) == -1) {
                     currentItemDepartments.push(res[index].department_name);
                 }
