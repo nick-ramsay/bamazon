@@ -21,8 +21,6 @@
 
 ### bamazonCustomer
 
-![Bamazon Customer Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonCustomer-instructions.jpg?raw=true)
-
   - To start, enter following command in terminal: ```node bamazonCustomer.js```
   - A list of items will appear from which you can choose.
     - Enter the item ID number for the product you'd like to purchase
@@ -30,9 +28,24 @@
   - After upon executing the purchase, the application will show via console log which item you purchased, how many units were purchased, and your total cost. If there wasn't enough stock for you to make your purchase, you will receive the following message in the console log and be asked to attempt your purchase again:
 ![Bamazon Customer Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonCustomer-insufficient-quantity.jpg?raw=true)
 
-### bamazonSupervisor
+### bamazonManager
+  - To start, enter following command in terminal: ```node bamazonManager.js```
+  - You will be presented with four actions actions from which you can chose, "View Products for Sale", "View Low Inventory", "Add to Inventory", or "Add New Product".
+    - View Products for Sale: This will show you a list of items currently for sale giving you the item ID, product name, product price, and current stock.
+    ![Bamazon Manager Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonSupervisor-products-for-sale.jpg?raw=true)
+      - You can then either return to the main menu to pick your next action or close the application.
+    - View Low Inventory: This will show you a list of items currently for sale which have a low inventory, meaning stock is below 5 units. The list will give you the item ID, product name, product price, and current stock.
+    ![Bamazon Manager Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonSupervisor-low-inventory.jpg?raw=true)
+      - You can then either return to the main menu to pick your next action or close the application.
+    - Add Inventory: This will show you a list of current items to which you can add inventory. After selecting an item, enter the inventory quantity you would like to add. After entering the values, you will receive a message via console log that the quantity you selected has been added to the inventory of the item you chose.
+    ![Bamazon Manager Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonSupervisor-add-inventory-item-selection.jpg?raw=true)
+    ![Bamazon Manager Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonSupervisor-add-inventory-quantity-selection.jpg?raw=true)
+      - You can then either return to the main menu to pick your next action or close the application.
+    - Add Inventory: This will allow you to add a product by entering a name, a department to which it belongs, a price, and the initial quantity of the product. After entering the values, you will receive a message via console log confirming that the product you entered has been added to the database with the price and quanity you specified.
+    ![Bamazon Manager Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonSupervisor-add-item.jpg?raw=true)
+      - You can then either return to the main menu to pick your next action or close the application.
 
-![Bamazon Supervisor Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonSupervisor-instructions.jpg?raw=true)
+### bamazonSupervisor
 
   - To start, enter following command in terminal: ```node bamazonSupervisor.js```
   - You will be presented with two actions from which you can chose, "View Product Sales by Department" or "Create New Department"
