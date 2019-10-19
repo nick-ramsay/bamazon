@@ -1,6 +1,9 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 
+var keys = require("./keys.js");
+var spotify = new Spotify(keys.spotify);
+
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
