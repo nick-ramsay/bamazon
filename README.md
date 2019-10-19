@@ -20,7 +20,9 @@
 - You will also need to create a MySQL database to support the application. This can be done by first running the ```bamazon-database-init.sql``` script and, after, running the ```bamazon-departments-table-init.sql``` script.
 
 - After creating the database, create a .env file that is set up as follows:
+
 ![Dependent Packages](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazon-envexample.jpg?raw=true)
+
   - Replace ```[MySQL Port Number]``` with your actual MySQL port number and replace ```[MySQL Password]``` with your actual MySQL password. The bamazon applications will use these credentials to interact with the database.
 
 ## Instructions
@@ -57,7 +59,7 @@
   - You will be presented with two actions from which you can chose, "View Product Sales by Department" or "Create New Department"
   ![Bamazon Supervisor Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonSupervisor-main-menu.jpg?raw=true)
     - View Product Sales by Department: This will show you a table that outlines, by department, total costs, total sales (revenue), and the profit or loss each department has accrued.
-    ![Bamazon Supervisor Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonSupervisor-product-sales.jpg?raw=true)
+    ![Bamazon Supervisor Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonSupervisor-product-sales-table.jpg?raw=true)
       - You can then either return to the main menu to pick your next action or close the application.
     - Create New Department: Will allow you to create a new department for the store by entering a name for the department and specifying the over head costs of the department.
     ![Bamazon Supervisor Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonSupervisor-new-department.jpg?raw=true)
