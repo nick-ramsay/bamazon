@@ -19,6 +19,10 @@
 
 - You will also need to create a MySQL database to support the application. This can be done by first running the ```bamazon-database-init.sql``` script and, after, running the ```bamazon-departments-table-init.sql``` script.
 
+- After creating the database, create a .env file that is set up as follows:
+![Dependent Packages](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazon-envexample.jpg?raw=true)
+  - Replace ```[MySQL Port Number]``` with your actual MySQL port number and replace ```[MySQL Password]``` with your actual MySQL password. The bamazon applications will use these credentials to interact with the database.
+
 ## Instructions
 
 ### bamazonCustomer
