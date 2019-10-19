@@ -1,3 +1,6 @@
+require("dotenv").config();
+
+var keys = require("./keys.js");
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 const { table } = require("table");
@@ -69,9 +72,9 @@ let data,
 
 var connection = mysql.createConnection({
     host: "localhost",
-    port: 3306,
+    port: keys.mysql.port,
     user: "root",
-    password: "data.Dump89",
+    password: keys.mysql.pw,
     database: "bamazon"
 });
 

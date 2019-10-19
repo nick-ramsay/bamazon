@@ -17,6 +17,8 @@
  
 - If you have cloned the repository with the package.json file, these packages can be installed using the ```npm-install``` command.
 
+- You will also need to create a MySQL database to support the application. This can be done by first running the ```bamazon-database-init.sql``` script and, after, running the ```bamazon-departments-table-init.sql``` script.
+
 ## Instructions
 
 ### bamazonCustomer
@@ -35,7 +37,7 @@
     ![Bamazon Manager Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonManager-products-for-sale.jpg?raw=true)
       - You can then either return to the main menu to pick your next action or close the application.
     - View Low Inventory: This will show you a list of items currently for sale which have a low inventory, meaning stock is below 5 units. The list will give you the item ID, product name, product price, and current stock.
-    ![Bamazon Manager Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonSupervisor-low-inventory.jpg?raw=true)
+    ![Bamazon Manager Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonManager-low-inventory.jpg?raw=true)
       - You can then either return to the main menu to pick your next action or close the application.
     - Add Inventory: This will show you a list of current items to which you can add inventory. After selecting an item, enter the inventory quantity you would like to add. After entering the values, you will receive a message via console log that the quantity you selected has been added to the inventory of the item you chose.
     ![Bamazon Manager Functionality](https://github.com/nick-ramsay/readme-images/blob/master/bamazon/bamazonManager-add-inventory-item-selection.jpg?raw=true)
